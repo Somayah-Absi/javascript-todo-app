@@ -5,23 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    
     <title>Document</title>
 </head>
 <body>
-    <div class="todo-list">
     
-   <h1>to do list</h1>
-   <input type="text" id="myInput" placeholder="Title...">
-   <span  class="add-btn">Add</span>
-<div class="list-content">
-   <ul>
-    <li>relaxing</li>
-    <li>finish homework</li>
-    <li>study</li>
-   </ul>
-   </div>
-   <button type="button">add list</button>
-   </div>
     
+    
+<div class="container">
+    <h1>Todo List<img  class="icon-title"src="./img/pencil.png"></h1>
+    <input type="text" id="todoInput" placeholder="Enter todo">
+    <button  class="add-btn"onclick="addTodo()">Add</button>
+    <ul id="todoList"></ul>
+  </div>
+ 
+    <script  src="./index.js"></script>
 </body>
 </html>
