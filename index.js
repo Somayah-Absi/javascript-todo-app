@@ -1,32 +1,35 @@
-const todoList = document.getElementById('todoList');
-const todoInput = document.getElementById('todoInput');
+const todoList = document.querySelector("#todoList");
 
-function addTodo() {
-  const todoText = todoInput.value.trim();
-  if (todoText !== '') {
-    const li = document.createElement('li');
-    li.classList.add('todo-item');
-    li.innerHTML = `
-      <input type="checkbox" onchange="toggleTodo(this)">
-      <span>${todoText}</span>
-      <button  class ="delete"onclick="deleteTodo(this)">Delete</button>
-    `;
-    todoList.appendChild(li);
-    todoInput.value = '';
+const todos = [
+  { description: "hi", completed: false },
+  { description: "somayah", completed: false },
+];
+
+function display(todos) {
+  if (todos.length === 0) {
+    alert("enter your list");
   } else {
-    alert('Please enter a valid todo');
+    for (let index = 0; index < todos.length; index++) {
+      const div = document.createElement("div");
+      div.classList.add("todo-item");
+
+      const items = document.createElement("p");
+      items.textContent = todos[index].description;
+      div.appendChild(items);
+      const deleteList = document.createElement("button");
+      deleteList.textContent = "Delete";
+      div.appendChild(deleteList);
+      const edit = document.createElement("button");
+      edit.textContent = "Edit";
+      div.appendChild(edit);
+
+      todoList.appendChild(div);
+    }
   }
 }
+display(todos);
 
-function deleteTodo(todoElement) {
-  const li = todoElement.parentElement;
-  todoList.removeChild(li);
-}
-function toggleTodo(checkbox) {
-  const span = checkbox.nextElementSibling;
-  if (checkbox.checked) {
-    span.style.textDecoration = 'line-through';
-  } else {
-    span.style.textDecoration = 'none';
-  }
+function addList(newLi) {
+  todos.push(newLi);
+  display(todos);
 }
