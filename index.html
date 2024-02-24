@@ -14,29 +14,24 @@
     <title>To-Do List Website</title>
   </head>
   <body>
-   
-      
-      
     <div class="container">
-      <h1>
-        To-do List
-      </h1>
+      <h1>To-do List</h1>
       <form class="search">
         <input type="text" id="searchInput" placeholder="what you want ?" />
         <button type="submit" class="search-btn">Search</button>
       </form>
-      
+
       <div class="inside">
         <div class="add-container">
           <input type="text" id="todoInput" placeholder="Enter todo" />
-          <button class="add-btn">
-            <i class="fa-solid fa-plus" style="color: #fc5e2e"></i>
+          <button aria-label="add-button" class="add-btn">
+            <i class="fa-solid fa-plus" style="color: #ffffff"></i>
           </button>
         </div>
         <div id="todoList"></div>
         <p class="counter"></p>
       </div>
-   </div>
+    </div>
     <script src="./index.js"></script>
   </body>
 </html>
