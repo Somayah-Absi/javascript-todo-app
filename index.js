@@ -23,6 +23,7 @@ const display = (todos) => {
         const todoCheckbox = document.createElement("input");
         todoCheckbox.type = "checkbox";
         todoCheckbox.checked = todos[index].completed;
+        todoCheckbox.setAttribute("aria-label", "task checkbox");
         todoCheckbox.addEventListener("change", () => toggleCompletion(index));
 
         div.appendChild(todoCheckbox);
@@ -39,11 +40,13 @@ const display = (todos) => {
         const deleteList = document.createElement("button");
         deleteList.innerHTML = `<i class="fa fa-trash" aria-hidden="true"></i>
 `;
+        deleteList.setAttribute("aria-label", "delete Button");
         deleteList.addEventListener("click", () => deleteTodo(index));
         div.appendChild(deleteList);
         // create edit button when click it will invoke editTodo function
         const edit = document.createElement("button");
         edit.innerHTML = `<i class="fa-solid fa-pencil" style="color: #0a1529;"></i>`;
+        edit.setAttribute("aria-label", "edit Button");
         edit.addEventListener("click", () => editTodo(index));
         div.appendChild(edit);
         // will count how many list item there depend on the array todos length
