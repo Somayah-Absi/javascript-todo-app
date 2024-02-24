@@ -1,6 +1,6 @@
 * {
   margin: 0;
-  font-family: cursive;
+  font-family:'Courier New', Courier, monospace;
   box-sizing: border-box;
   list-style: none;
 }
@@ -92,3 +92,12 @@ button:hover {
 .completed {
   text-decoration: line-through;
 }
+ @media only screen and (max-width: 600px){
+  body{
+    background-size: contain;
+  }
+  .todo-item p{
+padding-right: 30vh;
+
+  }
+ }
