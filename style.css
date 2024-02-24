@@ -4,8 +4,7 @@
   box-sizing: border-box;
   list-style: none;
 }
-
-.container {
+body {
   background-image: linear-gradient(
       rgba(0, 0, 0, 0.1),
       rgba(0, 0, 0, 0.1),
@@ -14,28 +13,24 @@
     url("./img/تصميم\ بدون\ عنوان\ \(4\).png");
   background-size: cover;
   background-position: center;
-
+  background-repeat: no-repeat;
   text-transform: capitalize;
-  display: flex;
 
+  height: 100vh;
+}
+.container {
+  display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 100vh;
+  padding-top: 10vh;
 }
 
 .add-btn {
-  cursor: pointer;
-  box-shadow: 4px 0px 4px 0 grey;
-  border: groove;
-  margin-top: 1vh;
-  border-radius: 10vh;
-  padding: 0.7vh;
-  padding-left: 3vh;
-  padding-right: 3vh;
-  font-size: 2vh;
-  background-color: #f7f3f1;
-  color: #f9f9f9;
+  background-color: #e6c7b8;
+}
+.add-btn:hover {
+  background-color: coral;
 }
 
 button {
@@ -78,7 +73,6 @@ button:hover {
 .inside {
   background-color: #ffffff81;
   box-shadow: 0vh 0vh 1vh 1vh rgba(120, 120, 120, 0.204);
-
   border-radius: 5vh;
   padding-top: 2vh;
   margin-top: 5vh;
