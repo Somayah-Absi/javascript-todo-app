@@ -30,7 +30,7 @@ body {
   background-color: #e6c7b8;
 }
 .add-btn:hover {
-  background-color: coral;
+  background-color: hsl(16, 100%, 66%);
 }
 
 button {
@@ -49,8 +49,15 @@ button:hover {
 
   color: #0c0b0b;
 }
+.search{
+  padding-top: 4vh;
+  padding-left: 5vh;
+  padding-bottom: 4vh;
+
+
+}
 #searchInput {
-  padding: 1.3vh;
+  padding: 1.5vh;
   margin-top: 2vh;
 
   border-radius: 10px;
@@ -88,6 +95,12 @@ button:hover {
   border-radius: 2vh;
   margin-right: 1vh;
 }
+.counter{
+padding:3vh 2vh;
+display: flex;
+justify-content: center;
+
+}
 
 .completed {
   text-decoration: line-through;
@@ -101,3 +114,4 @@ padding-right: 30vh;
 
   }
  }
+ 
