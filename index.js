@@ -7,7 +7,10 @@ const search = document.querySelector(".search");
 
 // the array of the to do list
 let todos = [];
-
+/**
+ *
+ * @param {array<object>} todos
+ */
 //function to display all the list of the to do list
 const display = (todos) => {
   try {
@@ -15,25 +18,27 @@ const display = (todos) => {
     if (todos.length === 0) {
       alert("enter your list");
     } else {
-      for (let index = 0; index < todos.length; index++) {
+      todos.forEach(function (todo, index) {
+        // destructure so i can use description and completed without todos[index].
+        const { description, completed } = todo;
         const div = document.createElement("div");
 
         div.classList.add("todo-item");
         // checkbox to complete and uncompleted list item
         const todoCheckbox = document.createElement("input");
         todoCheckbox.type = "checkbox";
-        todoCheckbox.checked = todos[index].completed;
+        todoCheckbox.checked = completed;
         todoCheckbox.setAttribute("aria-label", "task checkbox");
         todoCheckbox.addEventListener("change", () => toggleCompletion(index));
 
         div.appendChild(todoCheckbox);
         // create paragraph will contain the description that inside the todos array
         const items = document.createElement("p");
-        items.textContent = todos[index].description;
+        items.textContent = description;
 
         div.appendChild(items);
         // Add cross line if task is completed
-        if (todos[index].completed) {
+        if (completed) {
           items.classList.add("completed");
         }
         // create delete button when click it will invoke deleteTodo function
@@ -52,7 +57,7 @@ const display = (todos) => {
         // will count how many list item there depend on the array todos length
         counter.textContent = `Total tasks is : ${todos.length}`;
         todoList.appendChild(div);
-      }
+      });
     }
     // after create  new list item the user write it in the input field  this line will refresh the input field
     input.value = "";
@@ -76,6 +81,7 @@ const addTodo = () => {
     const newItems = {
       description: descriptionList,
       completed: false,
+      
     };
 
     // Add the new to-do item to the array
@@ -91,6 +97,10 @@ const addTodo = () => {
   }
 };
 
+/**
+ *
+ * @param {number} index number of index to each task
+ */
 const deleteTodo = (index) => {
   try {
     todos.splice(index, 1);
@@ -100,7 +110,10 @@ const deleteTodo = (index) => {
     console.log("something wrong");
   }
 };
-
+/**
+ *
+ * @param {number} index index number of each task
+ */
 const editTodo = (index) => {
   try {
     const newDescription = (todos[index].description = prompt(
@@ -116,6 +129,10 @@ const editTodo = (index) => {
     console.log("something wrong");
   }
 };
+/**
+ *
+ * @param {number} index index number of each task
+ */
 // Function to toggle completion status
 const toggleCompletion = (index) => {
   try {
@@ -127,6 +144,10 @@ const toggleCompletion = (index) => {
     console.log("Something went wrong");
   }
 };
+/**
+ *
+ * @param {event} e event of object
+ */
 const searchTodo = (e) => {
   try {
     e.preventDefault();
@@ -144,11 +165,18 @@ const searchTodo = (e) => {
         display(filteredTodos);
       }
     }
-    searchInput.value = "";
+   
   } catch (error) {
     console.log("something wrong");
   }
 };
+const handleSearchInputChange = () => {
+  const searchTerm = searchInput.value.trim().toLowerCase();
+  if (searchTerm === "") {
+    display(todos);
+  }
+};
+
 
 const getElementFromStorage = () => {
   try {
@@ -165,3 +193,4 @@ const getElementFromStorage = () => {
 window.addEventListener("DOMContentLoaded", getElementFromStorage);
 search.addEventListener("submit", searchTodo);
 addButton.addEventListener("click", addTodo);
+searchInput.addEventListener("input", handleSearchInputChange);
